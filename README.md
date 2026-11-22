@@ -3,7 +3,7 @@
 The Windows tool for Modbus commissioning and fault finding: find every device on the line, test each point without
 risk, and hand the client a report of what you proved.
 
-**Product page, pricing and Pro licences:** https://coilo.kalkansoftware.com/ · **45-second tour:** https://youtu.be/aP_Ued_rUqw
+**Product page, pricing and Pro licences:** https://coilo.kalkansoftware.com/ · **Product tour (1 minute):** https://youtu.be/J-TDfxz6es0
 
 This repository publishes Coilo's releases (downloads and release notes). The source code is not public. Coilo was
 called ModbusTool up to version 2.2; profiles, point lists and licence keys from ModbusTool keep working in Coilo.
