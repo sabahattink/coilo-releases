@@ -1,58 +1,69 @@
-# ModbusTool
+# Coilo
 
-Modbus commissioning tool for Windows, for building-automation engineers: read, write, scan and diagnose Modbus TCP
-and RTU devices on site, and test your BMS against a simulated device before the hardware arrives.
+The Windows tool for Modbus commissioning and fault finding: find every device on the line, test each point without
+risk, and hand the client a report of what you proved.
 
-**Product page, pricing and Pro licenses:** https://sabahattinkalkan.com/modbustool/
+**Product page, pricing and Pro licences:** https://coilo.kalkansoftware.com/ · **45-second tour:** https://youtu.be/aP_Ued_rUqw
 
-This repository publishes the releases (downloads and release notes). The source code is not public.
+This repository publishes Coilo's releases (downloads and release notes). The source code is not public. Coilo was
+called ModbusTool up to version 2.2; profiles, point lists and licence keys from ModbusTool keep working in Coilo.
 
 ## Download
 
-Get the latest ZIP from [Releases](https://github.com/sabahattink/modbustool-releases/releases/latest) or from the
-[product page](https://sabahattinkalkan.com/modbustool/#download). Each release lists the SHA-256 of the ZIP; check it
-before running:
+Get the latest files from [Releases](https://github.com/sabahattink/coilo-releases/releases/latest) or from the
+[product page](https://coilo.kalkansoftware.com/):
+
+- `Coilo-win-Setup.exe`: the installer, recommended; no admin rights needed.
+- `Coilo-<version>-win-x64.zip`: portable; unzip and run.
+- `ModbusSimulator.exe`: three Modbus TCP devices on your computer, to try Coilo without hardware.
+
+Windows 10 or 11, 64-bit; no .NET to install. The files are not code-signed yet, so your browser may warn about the
+download and Windows SmartScreen may stop the first start (More info → Run anyway). Check each file against
+`SHA256SUMS.txt` in the release first:
 
 ```powershell
-Get-FileHash .\ModbusTool-2.1.0-win-x64.zip -Algorithm SHA256
+Get-FileHash .\Coilo-win-Setup.exe -Algorithm SHA256
 ```
-
-- Windows 10 or 11, 64-bit. Self-contained: no installer, no .NET to install.
-- Unzip and run `ModbusTool.exe`. `ModbusSimulator.exe` is a demo Modbus TCP server with three devices, to try
-  everything without hardware (`ModbusSimulator.exe --port 1502`, then connect to `127.0.0.1:1502`).
-- The executables are not code-signed yet, so Windows SmartScreen may ask you to confirm the first start
-  (More info → Run anyway).
 
 ## Free and Pro
 
 | | Free | Pro |
 |---|:---:|:---:|
-| Modbus TCP, RTU (serial) and RTU over TCP | ✓ | ✓ |
-| Read and write FC01–06, 15, 16; eight data types, four byte orders | ✓ | ✓ |
-| Write lock, read-back verification and one-click undo | ✓ | ✓ |
-| Slave ID and register scanning, FC43 device identity | ✓ | ✓ |
-| Communication quality per slave and raw TX / RX frames | ✓ | ✓ |
-| Polling with trend, bit grid, labels, profiles and CSV export | ✓ | ✓ |
-| Twelve languages, dark and light theme | ✓ | ✓ |
-| Point list with engineering units, CSV import with Modicon addresses | | ✓ |
-| Long-term CSV recording | | ✓ |
-| Passive RS-485 bus monitor | | ✓ |
-| Slave (server) mode over TCP and RTU | | ✓ |
+| Modbus TCP, RTU over RS-485/RS-232, and RTU over TCP | ✓ | ✓ |
+| Function codes 01–06, 15 and 16; eight data types, four byte orders | ✓ | ✓ |
+| Writes locked until you unlock them, read back and checked, one-click undo | ✓ | ✓ |
+| Slave ID scan with baud rate and parity detection, FC43 device identity | ✓ | ✓ |
+| Polling from 100 ms to 60 s, trend, bit grid, labels, profiles, CSV export | ✓ | ✓ |
+| Success rate, timeouts, exceptions and p95 latency per slave; raw frames | ✓ | ✓ |
+| Commercial use, no time limit | ✓ | ✓ |
+| Register map discovery | | ✓ |
+| Point list: type, byte order, scale and unit per point; CSV in and out | | ✓ |
+| Long-term recording to CSV | | ✓ |
+| RS-485 bus monitor that listens without transmitting | | ✓ |
+| Slave mode over Modbus TCP or RTU | | ✓ |
 | Commissioning report (HTML, prints to PDF) | | ✓ |
 
-Pro is 49 USD per seat, one-time, with 12 months of updates. The license key is verified offline; no account, no
-telemetry. Buy it on the [product page](https://sabahattinkalkan.com/modbustool/#pricing).
+Pro is 49 USD per seat, paid once (plus tax where it applies), with 12 months of updates; every version released in
+that time keeps working without time limit. The key is checked on your computer: no account, no internet, no
+activation server. 14-day refund, no questions asked. Paddle.com is the Merchant of Record for all orders.
+
+Twelve languages, dark and light theme, works offline. No telemetry: besides your devices, Coilo contacts only GitHub,
+to check for updates, and that can be turned off in About (F1).
 
 ## Safety
 
-ModbusTool is a commissioning and diagnostic tool, not a control system. Writes are locked by default and verified by
-reading back. Do not write to, command or simulate life-safety systems (fire detection, suppression, voice evacuation)
-without the system owner's authorisation and the applicable procedures.
+Coilo is a commissioning and diagnostic tool, not a control system. Writing is locked by default and is unlocked on
+purpose; every write is yours to check on site.
 
-## License and support
+Do not use Coilo to write to life-safety systems such as fire detection, fire suppression, voice evacuation, smoke
+extraction or emergency lighting.
 
-ModbusTool is proprietary software, © 2026 Sabahattin Kalkan. Use is governed by the
-[End User License Agreement](https://sabahattinkalkan.com/modbustool/terms/) included in every ZIP (`EULA.md`).
-Third-party components are listed in `THIRD-PARTY-NOTICES.txt`.
+## Licence and support
 
-Questions and bug reports: hello@sabahattinkalkan.com
+Coilo is proprietary software, © 2026 Sabahattin Kalkan. Use is governed by the
+[end user licence agreement](https://coilo.kalkansoftware.com/eula/).
+
+Questions and bug reports: hello@kalkansoftware.com
+
+Modbus® is a registered trademark of Schneider Electric USA, Inc. Coilo is not affiliated with or endorsed by Schneider
+Electric or the Modbus Organization. Windows is a trademark of the Microsoft group of companies.
